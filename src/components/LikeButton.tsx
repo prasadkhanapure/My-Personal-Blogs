@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../utils/supabaseClient";
 
 type Props = { postId: string };
 
-export default function LikeButton({ postId }: Props) {
+const LikeButton = ({ postId }: Props) => {
   const [session, setSession] =
     useState<
       Awaited<ReturnType<typeof supabase.auth.getSession>>["data"]["session"]
@@ -15,7 +15,7 @@ export default function LikeButton({ postId }: Props) {
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
     const { data: sub } = supabase.auth.onAuthStateChange((_e, s) =>
-      setSession(s)
+      setSession(s),
     );
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -86,4 +86,6 @@ export default function LikeButton({ postId }: Props) {
       ❤️ {count ?? "—"}
     </button>
   );
-}
+};
+
+export default LikeButton;

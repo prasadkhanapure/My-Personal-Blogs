@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-export default function DarkModeToggle() {
+const DarkModeToggle = () => {
   const prefersDark =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [dark, setDark] = useState<boolean>(
     () =>
       (localStorage.getItem("theme") ?? (prefersDark ? "dark" : "light")) ===
-      "dark"
+      "dark",
   );
 
   useEffect(() => {
@@ -25,4 +25,6 @@ export default function DarkModeToggle() {
       {dark ? "🌙" : "☀️"}
     </button>
   );
-}
+};
+
+export default DarkModeToggle;

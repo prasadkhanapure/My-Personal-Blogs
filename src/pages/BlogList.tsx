@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../utils/supabaseClient";
 
 type Post = {
   id: string;
@@ -10,7 +10,7 @@ type Post = {
   published_at: string | null;
 };
 
-export default function BlogList() {
+const BlogList = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function BlogList() {
             key={p.id}
             className="p-4 border rounded-xl border-gray-200 dark:border-gray-700 hover:shadow-sm"
           >
-            <Link to={`/blog/${p.slug}`} className="block">
+            <Link to={`/blogs/${p.slug}`} className="block">
               <h2 className="text-xl font-semibold">{p.title}</h2>
               <p className="text-sm text-gray-500">
                 {p.published_at ? new Date(p.published_at).toDateString() : ""}
@@ -57,4 +57,6 @@ export default function BlogList() {
       </ul>
     </section>
   );
-}
+};
+
+export default BlogList;

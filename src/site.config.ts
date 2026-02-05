@@ -12,12 +12,12 @@ export type SiteConfig = {
 
 export const site: SiteConfig = {
   name: "Prasad Khanapure",
-  title: "Developer & Blogger",
-  tagline: "Front End React Developer",
+  title: "Blogger",
+  tagline: "UI Developer",
   avatarUrl: "",
   social: {
     linkedin: "https://www.linkedin.com/in/prasad-khanapure/",
-    github: "",
-    email: ""
+    github: "https://github.com/prasadkhanapure",
+    email: "pnkhanapure@gmail.com"
   }
 };

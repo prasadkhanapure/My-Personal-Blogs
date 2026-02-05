@@ -1,7 +1,7 @@
 import { site } from "../site.config";
 import { Mail, Linkedin, Github, Twitter, FileText } from "lucide-react";
 
-export default function About() {
+const About = () => {
   const avatarSrc =
     site.avatarUrl && site.avatarUrl.length > 0
       ? site.avatarUrl
@@ -24,7 +24,7 @@ export default function About() {
           <div className="mt-3 flex flex-wrap gap-2">
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/prasad-khanapure/"
+              href="https://www.linkedin.com/in/prasad-khanapure"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition"
@@ -34,7 +34,7 @@ export default function About() {
 
             {/* GitHub */}
             <a
-              href="https://github.com/pk1895"
+              href="https://github.com/prasadkhanapure"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-800 text-white hover:bg-black shadow-sm transition"
@@ -75,4 +75,6 @@ export default function About() {
       </article>
     </section>
   );
-}
+};
+
+export default About;

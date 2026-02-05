@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../utils/supabaseClient";
 import fallback from "../posts/first-blog.md?raw";
 import LikeButton from "../components/LikeButton";
 import Comments from "../components/Comments";
 
 type Post = {
-  id: string;
+  id?: string;
   slug: string;
   title: string;
   content: string;
   published_at: string | null;
 };
 
-export default function BlogPost() {
+const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState<Post | null>(null);
 
@@ -33,7 +33,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <article className="prose dark:prose-invert">
-        <Link to="/blog" className="no-underline text-sm">
+        <Link to="/blogs" className="no-underline text-sm">
           ← Back to Blog
         </Link>
         <h1>My First Blog (Local)</h1>
@@ -52,7 +52,7 @@ export default function BlogPost() {
 
   return (
     <article className="prose dark:prose-invert">
-      <Link to="/blog" className="no-underline text-sm">
+      <Link to="/blogs" className="no-underline text-sm">
         ← Back to Blog
       </Link>
       <h1>{post.title}</h1>
@@ -64,4 +64,6 @@ export default function BlogPost() {
       <ReactMarkdown>{post.content}</ReactMarkdown>
     </article>
   );
-}
+};
+
+export default BlogPost;
