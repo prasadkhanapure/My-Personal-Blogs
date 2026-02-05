@@ -16,8 +16,8 @@ const Navbar = () => {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
       if (session?.user) {
-        const { email } = session?.user;
-        dispatch(addUser(email));
+        const { email, id } = session?.user;
+        dispatch(addUser({ email, id }));
         navigate("/blogs");
       } else {
         dispatch(removeUser());

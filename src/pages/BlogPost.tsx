@@ -36,7 +36,6 @@ const BlogPost = () => {
         <Link to="/blogs" className="no-underline text-sm">
           ← Back to Blog
         </Link>
-        <h1>My First Blog (Local)</h1>
         <ReactMarkdown>{fallback}</ReactMarkdown>
         {post && (
           <div className="mt-6 flex items-center gap-3">

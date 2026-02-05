@@ -5,9 +5,9 @@ import BlogPost from "../pages/BlogPost";
 import SignUp from "../pages/SignUp";
 import About from "../pages/About";
 import Footer from "./Footer";
+import CreateNewBlog from "./CreateNewBlog";
 
 const AppRouter = () => {
-  
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
@@ -18,6 +18,7 @@ const AppRouter = () => {
             <Route path="/blogs" element={<BlogList />} />
             <Route path="/blogs/:slug" element={<BlogPost />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/new-blog" element={<CreateNewBlog />} />
           </Routes>
         </main>
         <Footer />
